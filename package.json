@@ -1,0 +1,35 @@
+{
+  "name": "hw",
+  "version": "1.0.0",
+  "description": "home work",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint .",
+    "prettier": "npx prettier . --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexSinGit/vuejs-hw.git#main"
+  },
+  "author": "Alexandr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexSinGit/vuejs-hw/issues"
+  },
+  "homepage": "https://github.com/AlexSinGit/vuejs-hw/tree/main#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.3.0",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "globals": "^15.3.0",
+    "prettier": "3.2.5"
+  }
+}
