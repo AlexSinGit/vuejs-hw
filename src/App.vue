@@ -6,7 +6,7 @@
         <hr/>
         <ProgressBar :percentage="percentage"/>
         <hr/>
-        <Alert :type="'warning'" :text="'Test warning text'" />
+        <Alert type="warning" text="Test warning text" />
       </div>
     </div>
   </div>
