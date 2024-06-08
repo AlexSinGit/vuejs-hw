@@ -1,15 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container-xl">
+    <div class="row">
+      <div class="col-6 mx-auto">
+        <Carousel :images="slides" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Carousel from './components/Carousel';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Carousel
+  },
+  data() {
+    return {
+      slides: [
+        '/images/slide1.jpg',
+        '/images/slide2.jpg',
+        '/images/slide3.jpg',
+        '/images/slide4.jpg',
+      ]
+    }
   }
 }
 </script>
