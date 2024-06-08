@@ -1,15 +1,23 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container-xl">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12 col-12 mx-auto">
+        <ListGroup>
+          <p>one</p>
+          <p>two</p>
+        </ListGroup>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ListGroup from "@/components/ListGroup.vue";
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ListGroup
   }
 }
 </script>
