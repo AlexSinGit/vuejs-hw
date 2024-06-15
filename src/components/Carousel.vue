@@ -2,21 +2,14 @@
   <div id="carousel" class="carousel slide" data-bs-ride="carousel" v-if="images.length > 0">
     <div class="carousel-inner">
       <div
+        v-for="(image, index) in images"
         :class="[
           'carousel-item',
-          {'active': index === currentSlide - 1 },
-          {'carousel-item-next': index === nextSlideIndex() - 1 && direction === 'next'},
-          {'carousel-item-prev': index === prevSlideIndex() - 1 && direction === 'prev'},
-          {'carousel-item-start': (index === nextSlideIndex() - 1 && direction === 'next') && animStart},
-          {'carousel-item-start': index === currentSlide - 1 && animStart && direction === 'next'},
-          {'carousel-item-end': (index === prevSlideIndex() - 1 && direction === 'prev') && animStart},
-          {'carousel-item-end': index === currentSlide - 1 && animStart && direction === 'prev'},
+          {'active': index === currentSlide }
         ]"
-        v-for="(image, index) in images"
-        :key="index"
-        @transitionend="onTransitionendEnd"
+        :key="image.id"
       >
-        <img alt="image" class="d-block w-100" :src="image" />
+        <img :alt="image.alt" class="d-block w-100" :src="image.src" />
       </div>
     </div>
     <button class="carousel-control-prev" data-bs-target="#carousel" type="button" data-bs-slide="prev" @click="prevSlide">
@@ -36,56 +29,42 @@ export default {
   props: {
     images: {
       type: Array,
-      default: () => []
+      required: true,
+      default: () => [],
+      validator: (value) => {
+        if (!Array.isArray(value)) {
+          console.warn('Items should be an array');
+          return false;
+        }
+
+        const isValid = value.every(item => typeof item === 'object' && item !== null);
+
+        if (!isValid) {
+          console.warn('Every item in the array should be an object');
+        }
+
+        return isValid;
+      }
     }
   },
   data() {
     return {
-      currentSlide: 1,
-      animStart: false,
-      nextIndex: 1,
-      direction: 'none'
+      currentSlide: 0
     }
   },
   methods: {
-    nextSlideIndex(){
-      let next = this.currentSlide + 1;
-      if(next > this.images.length){
-        next = 1;
-      }
-      return next;
-    },
-    prevSlideIndex(){
-      let prev = this.currentSlide - 1;
-      if(prev < 1){
-        prev = this.images.length;
-      }
-      return prev;
-    },
     nextSlide(){
-      this.direction = 'next';
-      this.nextIndex = this.nextSlideIndex();
-      setTimeout(() => {
-        this.animStart = true;
-      }, 0);
+      this.currentSlide++;
+      if(this.currentSlide > this.images.length - 1){
+        this.currentSlide = 0;
+      }
     },
     prevSlide(){
-      this.direction = 'prev';
-      this.nextIndex = this.prevSlideIndex();
-      setTimeout(() => {
-        this.animStart = true;
-      }, 0);
-    },
-    onTransitionendEnd(){
-      this.currentSlide = this.nextIndex;
-      this.animStart = false;
-      this.direction = 'none';
+      this.currentSlide--;
+      if(this.currentSlide < 0){
+        this.currentSlide = this.images.length - 1;
+      }
     }
   }
 };
 </script>
-
-
-<style scoped>
-
-</style>

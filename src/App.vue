@@ -17,15 +17,13 @@ export default {
   components: {
     Carousel
   },
-  data() {
-    return {
-      slides: [
-        '/images/slide1.jpg',
-        '/images/slide2.jpg',
-        '/images/slide3.jpg',
-        '/images/slide4.jpg',
+  computed: {
+      slides: () => [
+        { id: 1, src: '/images/slide1.jpg', alt: 'slide-1' },
+        { id: 2, src: '/images/slide2.jpg', alt: 'slide-2' },
+        { id: 3, src: '/images/slide3.jpg', alt: 'slide-3' },
+        { id: 4, src: '/images/slide4.jpg', alt: 'slide-4' }
       ]
-    }
   }
 }
 </script>
