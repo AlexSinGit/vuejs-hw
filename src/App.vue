@@ -1,15 +1,23 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-12 col-12 mx-auto">
+        <Collapse
+          text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+          :opened="true"
+        />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Collapse from "@/components/Collapse.vue";
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Collapse
   }
 }
 </script>
