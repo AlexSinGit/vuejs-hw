@@ -1,9 +1,3 @@
-<script>
-export default {
-  name: "CardV1"
-};
-</script>
-
 <template>
   <div class="card">
     <div class="card-body">
@@ -14,6 +8,8 @@ export default {
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<script>
+export default {
+  name: "CardV1"
+};
+</script>
